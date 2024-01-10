@@ -23,7 +23,7 @@ This is not an error.
 ```
 Before running the command, my working directory was `/home`.
 Like before, running it produced no output.
-But, this time it changed my working directory to the directory argument I specified, `\home\lecture1`.
+But, this time it changed my working directory to the directory argument I specified, `/home/lecture1`.
 This is not an error.
 
 ## With a Path to a File as an Argument
