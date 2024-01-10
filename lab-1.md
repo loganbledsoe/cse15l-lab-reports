@@ -1,4 +1,4 @@
-# The cd Command
+# The `cd` Command
 
 ## With No Arguments
 ```
@@ -43,7 +43,7 @@ It also did not change my working directory.
 This output indicates an error, and it occured becuase the `cd` command requires a path as argument if an argument is supplied.
 After all, its purpose it to change the working directory. Using a file as an argument does not make much sense.
 
-# The ls command
+# The `ls` command
 
 ## With no arguments
 ```
