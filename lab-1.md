@@ -8,9 +8,9 @@
 /home
 ```
 Before the command was run my working directory was `/home/lecture1`. 
-Running the command produced no outputs, however it changed my working directory to `/home`.
-When no arguments are given, the `cd` command changes your working directory to `/home`.
-
+Running produced no outputs, but it changed my working directory to `/home`.
+This is becuase when no arguments are given, the `cd` command always changes your working directory to `/home`.
+This is not an error.
 
 
 
