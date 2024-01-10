@@ -5,7 +5,6 @@
 [This should be a link to google.com!](https://www.google.com)
 ![Image](dog.jpeg)
 > This should be a blockquote!
-> More blockquote!
 * This is a list!
 * More list!
 1. A numbered list!
@@ -14,6 +13,6 @@
 ---
 `inline code`
 ```
-//This is a codeb lock
+//This is a code block
 System.out.println("wow!");
 ```
