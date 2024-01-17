@@ -49,7 +49,7 @@ After all, its purpose it to change the working directory. Using a file as an ar
 
 ## The `ls` Command
 
-**With no arguments**
+**With No Arguments**
 ```
 [user@sahara ~/lecture1]$ ls
 Hello.class  Hello.java  messages  README
@@ -87,7 +87,7 @@ This is not an error.
 
 ## The `cat` Command
 
-**With no arguments**
+**With No Arguments**
 ```
 [user@sahara ~]$ pwd
 /home
