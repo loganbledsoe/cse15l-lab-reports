@@ -23,7 +23,7 @@ This is not an error.
 ```
 Before running the command, my working directory was `/home`.
 Like before, running it produced no output.
-But, this time it changed my working directory to the directory argument I specified, `/home/lecture1`.
+But, this time it changed my working directory to `/home/lecture1` as specified by the argument `lecture1`.
 This is not an error.
 
 ## With a Path to a File as an Argument
@@ -43,7 +43,7 @@ It also did not change my working directory.
 This output indicates an error, and it occured becuase the `cd` command requires a path as argument if an argument is supplied.
 After all, its purpose it to change the working directory. Using a file as an argument does not make much sense.
 
-# The `ls` command
+# The `ls` Command
 
 ## With no arguments
 ```
@@ -78,3 +78,40 @@ Before and after running the command, my working directory was `/home/lecture1/m
 The command produced the outpit `en-us.txt`, the name of the file specified by the argument `en-us.txt`.
 This is because the `ls` command just prints the name of a file when a file is given as its argument.
 This is not an error.
+
+# The `cat` Command
+
+## With no arguments
+```
+[user@sahara ~]$ pwd
+/home
+[user@sahara ~]$ cat
+testing123
+testing123
+hello there
+hello there
+^C
+```
+Before and after running the command, my working directory was `/home`.
+No output was produced, but the prompt disappeared.
+Entering any text caused it to be repeated back to the terminal.
+This is becuase not specifiying any arguments causes the command to read from the terminal rather than a file.
+This is not an error.
+
+## With a Path to a Directory as an Argument
+```
+[user@sahara ~]$ pwd
+/home
+[user@sahara ~]$ cat lecture1
+cat: lecture1: Is a directory
+```
+Before and after running the command, my working directory was `/home`.
+The command produced the output `cat: lecture1: Is a directory`.
+This output indicates an error, and it occured becuase the `cat` command requires files as arguments (if they are supplied).
+This is because the `cat` command reads files, concatenates, and displays them.
+Using a directory as an argument does not make much sense in this context.
+
+## With a Path to a File as an Argument
+```
+
+```
