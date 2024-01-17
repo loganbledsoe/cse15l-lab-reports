@@ -134,5 +134,5 @@ public class Hello {
 ```
 Before and after running the command, my working directory was `/home/lecture1`.
 The command printed out the contents of `Hello.java`, a file contained in the working directory and specified by the argument `Hello.java`.
-Since just one argument was supplied, the `cat` command just printed the file.
+Since just one argument was supplied, the `cat` did not concatenate the contents of two files but just printed out the contents of one.
 This is not an error.
