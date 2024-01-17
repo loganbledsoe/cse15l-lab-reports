@@ -13,7 +13,7 @@
 Before running the command, my working directory was `/home/lecture1`. 
 Running it produced no outputs, but the command changed my working directory to `/home`.
 This is becuase when no arguments are given, the `cd` command always changes your working directory to `/home`.
-This is not an error.\
+This is not an error.
 
 **With a Path to a Directory as an Argument**
 ```
