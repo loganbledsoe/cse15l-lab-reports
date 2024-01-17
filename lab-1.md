@@ -96,7 +96,6 @@ testing123
 testing123
 hello there
 hello there
-^C
 ```
 Before and after running the command, my working directory was `/home`.
 No output was produced, and the prompt disappeared.
