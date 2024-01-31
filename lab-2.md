@@ -1,6 +1,7 @@
 # Lab 2
 
 ## Part 1
+**Code**
 My implementation of ChatServer is a modification of the given [wavelet server](https://github.com/ucsd-cse15l-f23/wavelet), and it consists of the two files below:
 
 **`ChatServer.java`**
@@ -120,7 +121,7 @@ public class Server {
     }
 }
 ```
-
+**Screenshots**
 ![First screenshot of server working](resources/lab-2/image-1.png)
 
 In this screenshot, submitting the url in the browser caused `handleRequest(URI url)` to be called on the instance of `Handler` created in `main` with the `URL` argument containing `localhost:4100/add-message?s=Hello there&user=Kenobi`.
