@@ -4,7 +4,7 @@
 My implementation of ChatServer is a modification of the given [wavelet server](https://github.com/ucsd-cse15l-f23/wavelet), and it consists of the two files below:
 
 **`ChatServer.java`**
-```
+```java
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
@@ -69,7 +69,7 @@ class ChatServer {
 }
 ```
 **`Server.java`**
-```
+```java
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
@@ -119,5 +119,4 @@ public class Server {
         System.out.println("Server Started!");
     }
 }
-
 ```
