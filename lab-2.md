@@ -125,9 +125,12 @@ public class Server {
 ![Second screenshot of server working](resources/lab-2/image-2.png)
 
 ## Part 2
-![a](resources/lab-2/image-3.png)
-![a](resources/lab-2/image-4.png)
-![a](resources/lab-2/image-5.png)
+**Absolute Path to the Private Key**
+![Absolute Path to the Private Key](resources/lab-2/image-3.png)
+**Absolute Path to the Public Key**
+![Absolute Path to the Public Key](resources/lab-2/image-4.png)
+**Terminal Interaction Login**
+![Terminal Interaction Login](resources/lab-2/image-5.png)
 
 ## Part 3
 These past weeks, I learned how I could create a simple server using Java and mostly things I already know. I also learned more about ports (i.e. that there are default ones, reserved ones, and such), how to ssh into servers, and how to create ssh keys.
