@@ -122,6 +122,10 @@ public class Server {
 ```
 
 ![First screenshot of server working](resources/lab-2/image-1.png)
+In this screenshot, submitting the url in the browser caused `handleRequest(URI url)` to be called on the instance of `Handler` created in `main` with the `URL` argument containing `localhost:4100/add-message?s=Hello there&user=Kenobi`.
+Finally, `handleRequest` calls the helper method `getDisplay()`.
+Before all this, the `List` field `messages` is an empty `ArrayList`. After, it contains one string, `Kenobi: Hello there`.
+
 ![Second screenshot of server working](resources/lab-2/image-2.png)
 
 ## Part 2
