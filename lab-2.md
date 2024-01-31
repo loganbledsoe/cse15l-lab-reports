@@ -141,12 +141,15 @@ After, it contains two strings, `Kenobi: Hello there` and `Grievous: General Ken
 
 ## Part 2
 **Absolute Path to the Private Key**
+
 ![Absolute Path to the Private Key](resources/lab-2/image-3.png)
 
 **Absolute Path to the Public Key**
+
 ![Absolute Path to the Public Key](resources/lab-2/image-4.png)
 
 **Terminal Interaction Login**
+
 ![Terminal Interaction Login](resources/lab-2/image-5.png)
 
 ## Part 3
