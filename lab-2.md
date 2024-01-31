@@ -1,15 +1,15 @@
 # Lab 1
 
 ## Part 1
-My implementation of ChatServer is a modification of the given Wavelet server.
-It consists of the two files below:
+My implementation of ChatServer is a modification of the given [wavelet server](https://github.com/ucsd-cse15l-f23/wavelet), and it consists of the two files below:
 
-**ChatServer.java**
+**`ChatServer.java`**
 ```
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+
 class Handler implements URLHandler {
     List<String> messages = new ArrayList<>();
     private static final String ERROR_MESSAGE = "404 Not Found!";
@@ -68,7 +68,7 @@ class ChatServer {
     }
 }
 ```
-**Server.java**
+**`Server.java`**
 ```
 import java.io.IOException;
 import java.io.OutputStream;
