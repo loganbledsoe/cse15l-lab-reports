@@ -150,3 +150,4 @@ After, it contains two strings, `Kenobi: Hello there` and `Grievous: General Ken
 
 ## Part 3
 These past weeks, I learned how I could create a simple server using Java and mostly things I already know. I also learned more about ports (i.e. that there are default ones, reserved ones, and such), how to ssh into servers, and how to create ssh keys.
+I also just got more experience with the bash commands we've learned so far.
