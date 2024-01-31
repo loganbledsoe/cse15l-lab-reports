@@ -121,5 +121,5 @@ public class Server {
 }
 ```
 
-![First screenshot of server working](resources/lab-2/image-1.jpg)
-![Second screenshot of server working](resources/lab-2/image-2.jpg)
+![First screenshot of server working](resources/lab-2/image-1.png)
+![Second screenshot of server working](resources/lab-2/image-2.png)
