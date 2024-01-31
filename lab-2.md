@@ -122,11 +122,18 @@ public class Server {
 ```
 
 ![First screenshot of server working](resources/lab-2/image-1.png)
+
 In this screenshot, submitting the url in the browser caused `handleRequest(URI url)` to be called on the instance of `Handler` created in `main` with the `URL` argument containing `localhost:4100/add-message?s=Hello there&user=Kenobi`.
 Finally, `handleRequest` calls the helper method `getDisplay()`.
 Before all this, the `List` field `messages` is an empty `ArrayList`. After, it contains one string, `Kenobi: Hello there`.
 
 ![Second screenshot of server working](resources/lab-2/image-2.png)
+
+Similar to the last screenshot, submitting the url in the browser caused `handleRequest(URI url)` to be called on the instance of `Handler` created in `main`.
+However, this time the `URL` argument that is passed in contains `localhost:4100/add-message?s=General Kenobi&user=Grievous`.
+Like before, `handleRequest` calls the helper method `getDisplay()`.
+This took place right after the the previous screenshot was taken, so before this the `List` field `messages` contains just one string, `Kenobi: Hello there`.
+After, it contains two strings, `Kenobi: Hello there` and `Grievous: General Kenobi!`, in that order.
 
 ## Part 2
 **Absolute Path to the Private Key**
