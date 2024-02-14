@@ -81,6 +81,9 @@ The updated method above instead sums the *entire* array then subracts the lowes
 **Command:** `find`
 
 **Option 1:** `-delete`
+
 **Option 2:** `-mtime`
+
 **Option 3:** `-empty`
+
 **Option 4:** `-size`
