@@ -100,7 +100,7 @@ Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main
 $ find biomed/ -mtime -5
  
 ```
-Now, the command tries to find all files/directories in `biomed/` modified within the last 5 days.
+Now, the command tries to find all files/directories in `biomed/` modified within the last `5` days.
 There are none, so is output is empty.
 This is useful for verifying there are no recently modified files in a directory.
 
@@ -142,7 +142,7 @@ plos/pmed.0020249.txt
 ```
 The `-size` option filters the result of the `find` command to
 any files or directories small or larger in size than the given number. (`-` for smaller than and `+` for greater than) (k for kilobytes, M for megabytes)
-In this example, the command finds the few files in `plos/` greater than 35kB.
+In this example, the command finds the few files in `plos/` greater than `35kB`.
 This would be useful to see which files are taking up a lot of space.
 You might then do something with these files such as delete them.
 
@@ -156,7 +156,7 @@ plos/paradox.txt
 plos/pmed.0020191.txt
 plos/pmed.0020226.txt
 ```
-Now, the command finds the files/directories in `plos/` less than 2kB.
+Now, the command finds the files/directories in `plos/` less than `2kB`.
 This would be useful to see which files are not taking up lots of space.
 
 **Option 4:** `-delete`
@@ -190,4 +190,4 @@ $ find plos/ -empty
  
 ```
 Now, using both the `-empty` and `-delete` options, the command deletes all *empty* files in `plos/`.
-This is a way in which you might clear up unnecessary (though not always) files/folders
+This is a way in which you might clean up unnecessary (though not always) files/folders
