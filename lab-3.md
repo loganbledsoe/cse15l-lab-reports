@@ -2,7 +2,7 @@
 
 ## Part 1 - Bugs
 
-**Method:** averageWithoutLowest(double[] arr)
+**Method:** `averageWithoutLowest(double[] arr)`
 
 **Inputs**
 
