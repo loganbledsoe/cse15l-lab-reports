@@ -91,7 +91,7 @@ plos/paradox.txt
 
 ```bash
 $ find biomed/ -mtime -5
-
+ 
 ```
 
 **Option 3:** `-empty`
