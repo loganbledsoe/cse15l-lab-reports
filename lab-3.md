@@ -140,6 +140,10 @@ plos/pmed.0020226.txt
 
 ```
 Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
+$ ls
+911report/  biomed/  government/  plos/
+
+Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
 $ find biomed/ -delete
  
 Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
