@@ -111,6 +111,10 @@ $ find plos/ -empty
 plos/empty-directory
 plos/empty.txt
 ```
+The `-empty` option filters the result of the `find` command to
+any files or directories that are empty.
+In this example, the the command finds one empty text file and one empty directory within `plos/`.
+This might be useful for finding files/directories that are useless and should be deleted.
 
 ```
 
@@ -118,6 +122,9 @@ Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main
 $ find biomed/ -empty
  
 ```
+Now, the command tries to find empty files/directories in `biomed/` but finds none.
+So, its output is empty. This is useful for a similar reason as the last example,
+but in this case shows there are no such files.
 
 **Option 3:** `-size`
 ```
@@ -166,6 +173,8 @@ Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main
 $ ls
 911report/  government/  plos/
 ```
+The `-delete` option, when added to the end of a `find` command deletes any files or folders that would have otherwise just been printed by the command.
+In this example, it deletes the entire directory `biomed/`, behaving similarly to `rm -r biomed/`.
 
 ```
 Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
@@ -178,4 +187,7 @@ $ find plos/ -empty -delete
 
 Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
 $ find plos/ -empty
+ 
 ```
+Now, using both the `-empty` and `-delete` options, the command deletes all *empty* files in `plos/`.
+This is a way in which you might clear up unnecessary (though not always) files/folders
