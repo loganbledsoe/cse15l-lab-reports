@@ -7,6 +7,7 @@
 ### Inputs
 
 The failure producing and non-failure producing inputs are included in the `testAverageWithoutLowest()` test below.
+Also see the table under the `Symptom` section.
 ```java
 @Test
     public void testAverageWithoutLowest() {
