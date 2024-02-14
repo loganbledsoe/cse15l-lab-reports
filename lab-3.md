@@ -1,4 +1,5 @@
 # Lab Report 3
+
 ## Part 1 - Bugs
 
 **Method:** averageWithoutLowest(double[] arr)
@@ -53,7 +54,7 @@ static double averageWithoutLowest(double[] arr) {
 ```
 
 After:
-```
+```java
 static double averageWithoutLowest(double[] arr) {
         if (arr.length < 2) {
             return 0.0;
@@ -72,3 +73,8 @@ static double averageWithoutLowest(double[] arr) {
         return sum / (arr.length - 1);
     }
 ```
+
+The issue with the method was that, when summing over the array, it would not inclue any numbers that were equal to the lowest, rather than just the lowest.
+The updated method above instead sums the *entire* array then subracts the lowest from that sum.
+
+## Part 2 - Researching Commands
