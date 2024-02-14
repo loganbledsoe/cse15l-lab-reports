@@ -107,5 +107,27 @@ $ find biomed/ -empty
 ```
 
 **Option 3:** `-size`
+```
+$ find plos/ -size +35k
+plos/pmed.0010028.txt
+plos/pmed.0010036.txt
+plos/pmed.0020018.txt
+plos/pmed.0020059.txt
+plos/pmed.0020073.txt
+plos/pmed.0020103.txt
+plos/pmed.0020182.txt
+plos/pmed.0020246.txt
+plos/pmed.0020249.txt
+```
+
+```
+$ find plos/ -size -2k
+plos/
+plos/empty-directory
+plos/empty.txt
+plos/paradox.txt
+plos/pmed.0020191.txt
+plos/pmed.0020226.txt
+```
 
 **Option 4:** `-delete`
