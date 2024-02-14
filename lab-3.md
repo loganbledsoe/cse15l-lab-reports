@@ -4,7 +4,7 @@
 
 **Method:** `averageWithoutLowest(double[] arr)`
 
-**Inputs**
+### Inputs
 
 The failure producing and non-failure producing inputs are included in the `testAverageWithoutLowest()` test below.
 ```java
@@ -20,7 +20,7 @@ The failure producing and non-failure producing inputs are included in the `test
     }
 ```
 
-**Symptom**
+### Symptom
 
 ![Screenshot of junit tests running](lab-report-3-img-1.png)
 
@@ -29,9 +29,9 @@ The failure producing and non-failure producing inputs are included in the `test
 | Non-Failure Inducing | 4.0, 3.5, 1.1, 2.2, 4.0 | 3.4250   | 3.4250 |
 | Failure Inducing     | 3.4, 2.0, 5.0, 2.0      | 3.4667   | 2.8000 |
 
-**Bug**
+### Bug
 
-Before:
+**Before**
 ```java
 static double averageWithoutLowest(double[] arr) {
         if (arr.length < 2) {
@@ -53,7 +53,7 @@ static double averageWithoutLowest(double[] arr) {
     }
 ```
 
-After:
+**After:**
 ```java
 static double averageWithoutLowest(double[] arr) {
         if (arr.length < 2) {
@@ -80,7 +80,7 @@ The updated method above instead sums the *entire* array then subracts the lowes
 ## Part 2 - Researching Commands
 **Command:** `find`
 
-**Option 1:** `-mtime`
+### Option 1: `-mtime`
 ```
 Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
 $ find plos/ -mtime -1
@@ -104,7 +104,7 @@ Now, the command tries to find all files/directories in `biomed/` modified withi
 There are none, so is output is empty.
 This is useful for verifying there are no recently modified files in a directory.
 
-**Option 2:** `-empty`
+### Option 2: `-empty`
 ```
 Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
 $ find plos/ -empty
@@ -126,7 +126,7 @@ Now, the command tries to find empty files/directories in `biomed/` but finds no
 So, its output is empty. This is useful for a similar reason as the last example,
 but in this case shows there are no such files.
 
-**Option 3:** `-size`
+### Option 3: `-size`
 ```
 Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
 $ find plos/ -size +35k
@@ -159,7 +159,7 @@ plos/pmed.0020226.txt
 Now, the command finds the files/directories in `plos/` less than `2kB`.
 This would be useful to see which files are not taking up lots of space.
 
-**Option 4:** `-delete`
+### Option 4: `-delete`
 
 ```
 Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
