@@ -80,20 +80,32 @@ The updated method above instead sums the *entire* array then subracts the lowes
 ## Part 2 - Researching Commands
 **Command:** `find`
 
-**Option 1:** `-delete`
-
-
-**Option 2:** `-mtime`
-```bash
+**Option 1:** `-mtime`
+```
 $ find plos/ -mtime -1
+plos/
+plos/empty-directory
+plos/empty.txt
 plos/paradox.txt
 ```
 
-```bash
+```
 $ find biomed/ -mtime -5
  
 ```
 
-**Option 3:** `-empty`
+**Option 2:** `-empty`
+```
+$ find plos/ -empty
+plos/empty-directory
+plos/empty.txt
+```
 
-**Option 4:** `-size`
+```
+$ find biomed/ -empty
+ 
+```
+
+**Option 3:** `-size`
+
+**Option 4:** `-delete`
