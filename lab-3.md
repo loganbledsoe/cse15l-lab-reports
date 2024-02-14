@@ -90,7 +90,7 @@ plos/empty.txt
 plos/paradox.txt
 ```
 The `-size` option filters the result of the `find` command to
-any files or directories modifided either between some time and now or before some time.
+any files or directories modifided either between some time and now or before some time (specified by a number of days in the past).
 (`-` for between some time and now and `+` for before some time)
 In this example, the the command finds all files/directories in `plos/` modified in the last day.
 This could be useful as it allows you to see any recent changes.
@@ -141,7 +141,7 @@ plos/pmed.0020246.txt
 plos/pmed.0020249.txt
 ```
 The `-size` option filters the result of the `find` command to
-any files or directories small or larger in size than the given number. (`-` for smaller than and `+` for greater than)
+any files or directories small or larger in size than the given number. (`-` for smaller than and `+` for greater than) (k for kilobytes, M for megabytes)
 In this example, the command finds the few files in `plos/` greater than 35kB.
 This would be useful to see which files are taking up a lot of space.
 You might then do something with these files such as delete them.
