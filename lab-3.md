@@ -78,3 +78,10 @@ The issue with the method was that, when summing over the array, it would not in
 The updated method above instead sums the *entire* array then subracts the lowest from that sum.
 
 ## Part 2 - Researching Commands
+**Command:** `find`
+
+-delete
+-mtime <>
+-empty
+-size
+
