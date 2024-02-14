@@ -82,7 +82,17 @@ The updated method above instead sums the *entire* array then subracts the lowes
 
 **Option 1:** `-delete`
 
+
 **Option 2:** `-mtime`
+```bash
+$ find plos/ -mtime -1
+plos/paradox.txt
+```
+
+```bash
+$ find biomed/ -mtime -5
+
+```
 
 **Option 3:** `-empty`
 
