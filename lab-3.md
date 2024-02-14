@@ -82,6 +82,7 @@ The updated method above instead sums the *entire* array then subracts the lowes
 
 **Option 1:** `-mtime`
 ```
+Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
 $ find plos/ -mtime -1
 plos/
 plos/empty-directory
@@ -90,24 +91,28 @@ plos/paradox.txt
 ```
 
 ```
+Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
 $ find biomed/ -mtime -5
  
 ```
 
 **Option 2:** `-empty`
 ```
+Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
 $ find plos/ -empty
 plos/empty-directory
 plos/empty.txt
 ```
 
 ```
+Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
 $ find biomed/ -empty
  
 ```
 
 **Option 3:** `-size`
 ```
+Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
 $ find plos/ -size +35k
 plos/pmed.0010028.txt
 plos/pmed.0010036.txt
@@ -121,6 +126,7 @@ plos/pmed.0020249.txt
 ```
 
 ```
+Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
 $ find plos/ -size -2k
 plos/
 plos/empty-directory
@@ -131,3 +137,24 @@ plos/pmed.0020226.txt
 ```
 
 **Option 4:** `-delete`
+
+```
+Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
+$ find biomed/ -delete
+ 
+Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
+$ ls
+911report/  government/  plos/
+```
+
+```
+$ find plos/ -empty
+plos/empty-directory
+plos/empty.txt
+
+Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
+$ find plos/ -empty -delete
+
+Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
+$ find plos/ -empty
+```
