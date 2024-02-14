@@ -4,7 +4,7 @@
 **Method:** averageWithoutLowest(double[] arr)
 
 **Inputs**
-The failure producing and non-failure producing inputs are included in the testAverageWithoutLowest() test below.
+The failure producing and non-failure producing inputs are included in the `testAverageWithoutLowest()` test below.
 ```java
 @Test
     public void testAverageWithoutLowest() {
@@ -18,9 +18,53 @@ The failure producing and non-failure producing inputs are included in the testA
     }
 ```
 
-**
+**Symptom**
+![Screenshot of junit tests running](lab-report-3-img-1.png)
 
 | **Type**                 | **Input**                   | **Expected** | **Actual** |
 |----------------------|-------------------------|----------|--------|
 | Non-Failure Inducing | 4.0, 3.5, 1.1, 2.2, 4.0 | 3.4250   | 3.4250 |
 | Failure Inducing     | 3.4, 2.0, 5.0, 2.0      | 3.4667   | 2.8000 |
+
+**Bug**
+Before:
+```java
+static double averageWithoutLowest(double[] arr) {
+        if (arr.length < 2) {
+            return 0.0;
+        }
+        double lowest = arr[0];
+        for (double num : arr) {
+            if (num < lowest) {
+                lowest = num;
+            }
+        }
+        double sum = 0;
+        for (double num : arr) {
+            if (num != lowest) {
+                sum += num;
+            }
+        }
+        return sum / (arr.length - 1);
+    }
+```
+After:
+```
+static double averageWithoutLowest(double[] arr) {
+        if (arr.length < 2) {
+            return 0.0;
+        }
+        double lowest = arr[0];
+        for (double num : arr) {
+            if (num < lowest) {
+                lowest = num;
+            }
+        }
+        double sum = 0;
+        for (double num : arr) {
+            sum += num;
+        }
+        sum -= lowest;
+        return sum / (arr.length - 1);
+    }
+```
