@@ -4,7 +4,7 @@
 **Method:** averageWithoutLowest(double[] arr)
 
 **Inputs**
-
+The failure producing and non-failure producing inputs are included in the testAverageWithoutLowest() test below.
 ```java
 @Test
     public void testAverageWithoutLowest() {
@@ -17,6 +17,8 @@
                 ArrayExamples.averageWithoutLowest(failureInput), 0.001);
     }
 ```
+
+**
 
 | **Type**                 | **Input**                   | **Expected** | **Actual** |
 |----------------------|-------------------------|----------|--------|
