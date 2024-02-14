@@ -148,6 +148,7 @@ $ ls
 ```
 
 ```
+Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
 $ find plos/ -empty
 plos/empty-directory
 plos/empty.txt
