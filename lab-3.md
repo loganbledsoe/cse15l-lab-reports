@@ -80,8 +80,7 @@ The updated method above instead sums the *entire* array then subracts the lowes
 ## Part 2 - Researching Commands
 **Command:** `find`
 
--delete
--mtime <>
--empty
--size
-
+**Option 1:** `-delete`
+**Option 2:** `-mtime`
+**Option 3:** `-empty`
+**Option 4:** `-size`
