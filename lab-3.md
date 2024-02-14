@@ -191,3 +191,8 @@ $ find plos/ -empty
 ```
 Now, using both the `-empty` and `-delete` options, the command deletes all *empty* files in `plos/`.
 This is a way in which you might clean up unnecessary (though not always) files/folders
+
+**Sources**
+For all options above, the sources are as follows:
+- ChatGPT with the prompt "What are some useful options/flags for the find command in bash?" This provided a starting point of options to further research with the man command/--help option.
+- The man command and --help option.
