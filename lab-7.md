@@ -55,7 +55,7 @@ vim<space>L<tab>.<tab><enter>
 - `vim ListExamples.java`
 
 **Notes:**<br>
-Simmilar to the last step, I used tab autocomplete to type the file name `ListExamples.java` in the command `vim ListExamples.java`. Though in this case, there were four files that began with an `L` in the working directory: `ListExamples.java`, `ListExamples.class`, `ListExamplesTests.java`, `ListExamplesTests.java`. The files ending in `.class` do not tab autocomplete as an argument to the `vim` command, so that narrows it down to two files. So, after typing `L` and pressing tab, I typed `.` to give autocomplete the information it needed and pressed tab again.
+Similar to the last step, I used tab autocomplete to type the file name `ListExamples.java` in the command `vim ListExamples.java`. Though in this case, there were four files that began with an `L` in the working directory: `ListExamples.java`, `ListExamples.class`, `ListExamplesTests.java`, `ListExamplesTests.java`. The files ending in `.class` do not tab autocomplete as an argument to the `vim` command, so that narrows it down to two files. So, after typing `L` and pressing tab, I typed `.` to give autocomplete the information it needed and pressed tab again.
 
 The following is an explanation for my vim keystrokes:
 - `43j`: Down motion with a count of 43. This brings me to line 43 where the bug is.
@@ -98,6 +98,6 @@ git<space>push<enter>
 - `git push`
 
 **Notes:**<br>
-Simmilar to step 7, I used tab autocomplete to type the file name `ListExamples.java` in the `git add ListExamples.java` command.
+Similar to step 7, I used tab autocomplete to type the file name `ListExamples.java` in the `git add ListExamples.java` command.
 However, in this case the `git add` command allowed all four of the files starting with `L` to be autocompleted.
 So, after typing `L` and hitting tab, I typed `.j` and hit tab again to clarify which file I wanted.
