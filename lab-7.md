@@ -4,8 +4,10 @@
 ![screenshot of step 4](resources/lab-7/step4.png)
 
 **Keys Pressed:**
-ssh<space>lbledsoe@ieng6.ucsd.edu<enter>
+```
+ssh<space>lbledsoe@ieng6.ucsd.edu<enter>`
 cs15lwi24<enter>
+```
 
 **Command(s) Ran:**
 `ssh lbledsoe@ieng6.ucsd.edu`
@@ -15,7 +17,7 @@ cs15lwi24<enter>
 ![screenshot of step 5](resources/lab-7/step5.png)
 
 **Keys Pressed:**
-git<space>clone<space><ctrl + v><enter>
+`git<space>clone<space><ctrl + v><enter>`
 
 **Command(s) Ran:**
 `git clone git@github.com:loganbledsoe/lab7.git`
@@ -27,8 +29,10 @@ The url for the Github repository was on my clipboard, so I used ctrl + v (paste
 ![screenshot of step 6](resources/lab-7/step6.png)
 
 **Keys Pressed:**
+```
 cd<space>l<tab><enter>
 bash<space>t<tab><enter>
+```
 
 **Command(s) Ran:**
 `cd lab7/`
@@ -42,8 +46,10 @@ Within the home directory there was only one file/directory that began with an `
 ![second screenshot of step 7](resources/lab-7/step7_2.png)
 
 **Keys Pressed:**
+```
 vim<space>L<tab>.<tab><enter>
 43jexi2<esc>:wq<enter>
+```
 
 **Command(s) Ran:**
 `vim ListExamples.java`
@@ -65,7 +71,8 @@ The following is an explanation for my vim keystrokes:
 ![screenshot of step 8](resources/lab-7/step8.png)
 
 **Keys Pressed:**
-<up><up><enter>
+`<up><up><enter>`
+
 **Command(s) Ran:**
 `bash test.sh`
 
@@ -77,9 +84,11 @@ The `bash test.sh` command was two up in my command history due to step 6, so I 
 ![screenshot of step 9](resources/lab-7/step9.png)
 
 **Keys Pressed:**
+```
 git<space>add<space>L<tab>.<tab><enter>
 git<space>commit<space>-m<space>"fixed<space>bugs"<enter>
 git<space>push<enter>
+```
 
 **Command(s) Ran:**
 `git add ListExamples.java`
