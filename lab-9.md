@@ -108,7 +108,7 @@ java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnit
 bash test.sh
 ```
 
-## Reflection
+## Part 2 - Reflection
 One thing I learned -- and probably my biggest *single* takeaway -- from the second half of lab is how to use jdb.
 Before this I knew debuggers existed but never gave them a try.
 I would just place print statements everywhere to reach a similar effect.
