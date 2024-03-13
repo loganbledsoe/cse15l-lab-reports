@@ -5,13 +5,13 @@
 
 **Keys Pressed:**
 ```
-ssh<space>lbledsoe@ieng6.ucsd.edu<enter>`
+ssh<space>lbledsoe@ieng6.ucsd.edu<enter>
 cs15lwi24<enter>
 ```
 
 **Command(s) Ran:**
-`ssh lbledsoe@ieng6.ucsd.edu`
-`cs15lwi24`
+- `ssh lbledsoe@ieng6.ucsd.edu`
+- `cs15lwi24`
 
 ## Step 5
 ![screenshot of step 5](resources/lab-7/step5.png)
@@ -20,9 +20,9 @@ cs15lwi24<enter>
 `git<space>clone<space><ctrl + v><enter>`
 
 **Command(s) Ran:**
-`git clone git@github.com:loganbledsoe/lab7.git`
+- `git clone git@github.com:loganbledsoe/lab7.git`
 
-**Notes:**
+**Notes:**<br>
 The url for the Github repository was on my clipboard, so I used ctrl + v (paste) to access it.
 
 ## Step 6
@@ -35,10 +35,10 @@ bash<space>t<tab><enter>
 ```
 
 **Command(s) Ran:**
-`cd lab7/`
-`bash test.sh`
+- `cd lab7/`
+- `bash test.sh`
 
-**Notes:**
+**Notes:**<br>
 Within the home directory there was only one file/directory that began with an `l`, `lab7/` and within the `lab7/` directory there was only one file that began with a `t`, `test.sh`. So, instead of typing these two paths/files out, I used tab autocomplete, only tying their first letters then hitting tab, to get each path/file for the commands.
 
 ## Step 7
@@ -52,9 +52,9 @@ vim<space>L<tab>.<tab><enter>
 ```
 
 **Command(s) Ran:**
-`vim ListExamples.java`
+- `vim ListExamples.java`
 
-**Notes:**
+**Notes:**<br>
 Simmilar to the last step, I used tab autocomplete to type the file name `ListExamples.java` in the command `vim ListExamples.java`. Though in this case, there were four files that began with an `L` in the working directory: `ListExamples.java`, `ListExamples.class`, `ListExamplesTests.java`, `ListExamplesTests.java`. The files ending in `.class` do not tab autocomplete as an argument to the `vim` command, so that narrows it down to two files. So, after typing `L` and pressing tab, I typed `.` to give autocomplete the information it needed and pressed tab again.
 
 The following is an explanation for my vim keystrokes:
@@ -71,12 +71,14 @@ The following is an explanation for my vim keystrokes:
 ![screenshot of step 8](resources/lab-7/step8.png)
 
 **Keys Pressed:**
-`<up><up><enter>`
+```
+<up><up><enter>
+```
 
 **Command(s) Ran:**
-`bash test.sh`
+- `bash test.sh`
 
-**Notes:**
+**Notes:**<br>
 The `bash test.sh` command was two up in my command history due to step 6, so I used the up arrow twice to access it.
 
 
@@ -91,11 +93,11 @@ git<space>push<enter>
 ```
 
 **Command(s) Ran:**
-`git add ListExamples.java`
-`git commit -m "fixed bugs"`
-`git push`
+- `git add ListExamples.java`
+- `git commit -m "fixed bugs"`
+- `git push`
 
-**Notes:**
+**Notes:**<br>
 Simmilar to step 7, I used tab autocomplete to type the file name `ListExamples.java` in the `git add ListExamples.java` command.
 However, in this case the `git add` command allowed all four of the files starting with `L` to be autocompleted.
 So, after typing `L` and hitting tab, I typed `.j` and hit tab again to clarify which file I wanted.
