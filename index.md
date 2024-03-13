@@ -1,7 +1,7 @@
 # UCSD CSE 15L W24 Lab Reports
-**Author:** Logan Bledsoe
+**Author: Logan Bledsoe**
 <br>
-Based on labs from [UCSD CSE 15L W24 course website](https://ucsd-cse15l-w24.github.io/index.html).
+Based on labs from the [UCSD CSE 15L W24 course website](https://ucsd-cse15l-w24.github.io/index.html)
 
 [Report 1 - Week 1](lab-1.md)
 [Report 2 - Week 3](lab-3.md)
