@@ -10,8 +10,19 @@ I've looked though my code a bunch of times and I can't seem to find anything th
 ![test results](resources/lab-9/test-results.png)
 
 ### TA Response
+Run your test that failed again, but pay close attention to what is being swapped and how local variables are changing.
+It might help to use jdb and set breakpoints after each swap occurs.
 
 ### What the Sutdent Got From the Response
+The student then commented out all tests except the one that failed and ran jdb with a breakpoint before line 14 of Sort.
+
+![screenshot of jdb running](resources/lab-9/debug.png)
+
+After the first comparison, no swap occurs since `5 < 8`, and, as expected, no local variables (except the loop indices) are changed.
+After the second comparsion, a swap does occur since `8 > 1`. `arr[1]` becomes `1` as expected, but `arr[2]` becomes `5` when it should have become `8`.
+Also, `temp` is set to `5`. This explains the erroneous value of `arr[2]`.
+Taking a closer look at line 15, the only location temp is set after it's initialized, shows `temp` is set to the ith element of `arr` during every swap when it should be set to the jth element.
+`temp` is not being set to the left value to swap as it should be. This is the bug, and fixing it allows all the tests to pass.
 
 ### Setup Information
 
@@ -30,7 +41,7 @@ I've looked though my code a bunch of times and I can't seem to find anything th
 ```java
 class Sort {
     static void BubbleSort(int[] arr) {
-        int temp;
+        int temp = 0;
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
@@ -90,3 +101,8 @@ public class SortTests {
 javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java
 java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore sortTests
 ```
+
+**Command Run to Trigger Bug:**
+`bash test.sh`
+
+## Reflection
