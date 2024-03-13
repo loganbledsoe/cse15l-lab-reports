@@ -21,8 +21,9 @@ The student then commented out all tests except the one that failed and ran jdb 
 After the first comparison, no swap occurs since `5 < 8`, and, as expected, no local variables (except the loop indices) are changed.
 After the second comparsion, a swap does occur since `8 > 1`. `arr[1]` becomes `1` as expected, but `arr[2]` becomes `5` when it should have become `8`.
 Also, `temp` is set to `5`. This explains the erroneous value of `arr[2]`.
-Taking a closer look at line 15, the only location temp is set after it's initialized, shows `temp` is set to the ith element of `arr` during every swap when it should be set to the jth element.
-`temp` is not being set to the left value to swap as it should be. This is the bug, and fixing it allows all the tests to pass.
+Taking a closer look at line 15 -- the only location temp is set after it's initialized -- shows `temp` is not being set to the left value to swap as it should be.
+`temp` is set to the ith element of `arr` during every swap when it should be set to the jth element.
+This is the bug, and fixing it allows all the tests to pass.
 
 ### Setup Information
 
@@ -103,6 +104,15 @@ java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnit
 ```
 
 **Command Run to Trigger Bug:**
-`bash test.sh`
+```
+bash test.sh
+```
 
 ## Reflection
+One thing I learned -- and probably my biggest *single* takeaway -- from the second half of lab is how to use jdb.
+Before this I knew debuggers existed but never gave them a try.
+I would just place print statements everywhere to reach a similar effect.
+This has worked but has started to get tedious and a little confusing, so I'm happy lab pushed me to look into the alternative.
+And of course the use of it in lab has got me a little familiar with it -- at least the basics.
+A more general thing I want to add is that the repeated practice with the command line thoughout all the labs have really got me to remember and undstanding things.
+I'm now able to use the commands in other classes to speed things, and I feel like I now have a better understanding of how everything fits together (outputs, inputs, and such).
