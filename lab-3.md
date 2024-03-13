@@ -1,200 +1,159 @@
-# Lab Report 3
+# Lab Report 2 - Week 3
 
-## Part 1 - Bugs
+## Part 1
+**Code**
 
-**Method:** `averageWithoutLowest(double[] arr)`
+My implementation of ChatServer is a modification of the given [wavelet server](https://github.com/ucsd-cse15l-f23/wavelet), and it consists of the two files below:
 
-### Inputs
-
-The failure producing and non-failure producing inputs are included in the `testAverageWithoutLowest()` test below.
-Also see the table under the `Symptom` section.
+**`ChatServer.java`**
 ```java
-@Test
-    public void testAverageWithoutLowest() {
-        double[] sucessInput = { 4.0, 3.5, 1.1, 2.2, 4.0 };
-        double[] failureInput = { 3.4, 2.0, 5.0, 2.0 };
+import java.io.IOException;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 
-        assertEquals(3.4250,
-                ArrayExamples.averageWithoutLowest(sucessInput), 0.001);
-        assertEquals(3.4667,
-                ArrayExamples.averageWithoutLowest(failureInput), 0.001);
+class Handler implements URLHandler {
+    List<String> messages = new ArrayList<>();
+    private static final String ERROR_MESSAGE = "404 Not Found!";
+
+    public String handleRequest(URI url) {
+        //check for /add-message path
+        if (!url.getPath().equals("/add-message")) {
+            return ERROR_MESSAGE;
+        }
+
+        String parameters = url.getQuery();
+        int index = parameters.indexOf("&user=");
+
+        //check that both parameters exist
+        if (!parameters.startsWith("s=") || index == -1) {
+            return ERROR_MESSAGE;
+        }
+
+        //extract parameters
+        String message = parameters.substring(2, index);
+        String user = parameters.substring(index + 6);
+
+        //format <user>: <message>
+        String formattedMessage = user + ": " + message;
+
+        //add to messages
+        messages.add(formattedMessage);
+
+        return getDisplay();
     }
+
+    //returns string that is a concatenation all
+    //strings in messages with newlines inbetween
+    private String getDisplay() {
+        String result = "";
+        for (String str : messages) {
+            result += str + "\n";
+        }
+        return result;
+    }
+}
+
+class ChatServer {
+    private static final String PORT_ERROR_MESSAGE =
+            "Missing port number! Try any number between 1024 to 49151";
+
+    public static void main(String[] args) throws IOException {
+        if(args.length == 0){
+            System.out.println(PORT_ERROR_MESSAGE);
+            return;
+        }
+
+        int port = Integer.parseInt(args[0]);
+
+        Server.start(port, new Handler());
+    }
+}
 ```
-
-### Symptom
-
-![Screenshot of junit tests running](lab-report-3-img-1.png)
-
-| **Type**                 | **Input**                   | **Expected** | **Actual** |
-|----------------------|-------------------------|----------|--------|
-| Non-Failure Inducing | 4.0, 3.5, 1.1, 2.2, 4.0 | 3.4250   | 3.4250 |
-| Failure Inducing     | 3.4, 2.0, 5.0, 2.0      | 3.4667   | 2.8000 |
-
-### Bug
-
-**Before**
+**`Server.java`**
 ```java
-static double averageWithoutLowest(double[] arr) {
-        if (arr.length < 2) {
-            return 0.0;
-        }
-        double lowest = arr[0];
-        for (double num : arr) {
-            if (num < lowest) {
-                lowest = num;
-            }
-        }
-        double sum = 0;
-        for (double num : arr) {
-            if (num != lowest) {
-                sum += num;
-            }
-        }
-        return sum / (arr.length - 1);
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+import java.net.URI;
+
+import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpHandler;
+import com.sun.net.httpserver.HttpServer;
+
+interface URLHandler {
+    String handleRequest(URI url);
+}
+
+class ServerHttpHandler implements HttpHandler {
+    URLHandler handler;
+    ServerHttpHandler(URLHandler handler) {
+      this.handler = handler;
     }
-```
-
-**After:**
-```java
-static double averageWithoutLowest(double[] arr) {
-        if (arr.length < 2) {
-            return 0.0;
+    public void handle(final HttpExchange exchange) throws IOException {
+        // form return body after being handled by program
+        try {
+            String ret = handler.handleRequest(exchange.getRequestURI());
+            // form the return string and write it on the browser
+            exchange.sendResponseHeaders(200, ret.getBytes().length);
+            OutputStream os = exchange.getResponseBody();
+            os.write(ret.getBytes());
+            os.close();
+        } catch(Exception e) {
+            String response = e.toString();
+            exchange.sendResponseHeaders(500, response.getBytes().length);
+            OutputStream os = exchange.getResponseBody();
+            os.write(response.getBytes());
+            os.close();
         }
-        double lowest = arr[0];
-        for (double num : arr) {
-            if (num < lowest) {
-                lowest = num;
-            }
-        }
-        double sum = 0;
-        for (double num : arr) {
-            sum += num;
-        }
-        sum -= lowest;
-        return sum / (arr.length - 1);
     }
+}
+
+public class Server {
+    public static void start(int port, URLHandler handler) throws IOException {
+        HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
+
+        //create request entrypoint
+        server.createContext("/", new ServerHttpHandler(handler));
+
+        //start the server
+        server.start();
+        System.out.println("Server Started!");
+    }
+}
 ```
 
-The issue with the method was that, when summing over the array, it would not inclue any numbers that were equal to the lowest, rather than just the lowest.
-The updated method above instead sums the *entire* array then subracts the lowest from that sum.
+**Screenshots**
 
-## Part 2 - Researching Commands
-**Command:** `find`
+![First screenshot of server working](resources/lab-3/image-1.png)
 
-### Option 1: `-mtime`
-```
-Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
-$ find plos/ -mtime -1
-plos/
-plos/empty-directory
-plos/empty.txt
-plos/paradox.txt
-```
-The `-size` option filters the result of the `find` command to
-any files or directories modifided either between some time and now or before some time (specified by a number of days in the past).
-(`-` for between some time and now and `+` for before some time)
-In this example, the the command finds all files/directories in `plos/` modified in the last day.
-This could be useful as it allows you to see any recent changes.
+In this screenshot, submitting the url in the browser caused `handleRequest(URI url)` to be called on the instance of `Handler` created in `main` with the `URL` argument containing `localhost:4100/add-message?s=Hello there&user=Kenobi`.
+Finally, `handleRequest` calls the helper method `getDisplay()`.
+Before all this, the `List` field, `messages`, was an empty `ArrayList`. After, it contains one string, `Kenobi: Hello there`.
 
-```
-Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
-$ find biomed/ -mtime -5
- 
-```
-Now, the command tries to find all files/directories in `biomed/` modified within the last `5` days.
-There are none, so is output is empty.
-This is useful for verifying there are no recently modified files in a directory.
+![Second screenshot of server working](resources/lab-3/image-2.png)
 
-### Option 2: `-empty`
-```
-Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
-$ find plos/ -empty
-plos/empty-directory
-plos/empty.txt
-```
-The `-empty` option filters the result of the `find` command to
-any files or directories that are empty.
-In this example, the the command finds one empty text file and one empty directory within `plos/`.
-This might be useful for finding files/directories that are useless and should be deleted.
+Similar to the last screenshot, submitting the url in the browser caused `handleRequest(URI url)` to be called on the instance of `Handler` created in `main`.
+However, this time the `URL` argument that is passed in contains `localhost:4100/add-message?s=General Kenobi&user=Grievous`.
+Like before, `handleRequest` calls the helper method `getDisplay()`.
+This took place right after the the previous screenshot was taken, so before this the `List` field, `messages`, contained just one string, `Kenobi: Hello there`.
+After, it contains two strings, `Kenobi: Hello there` and `Grievous: General Kenobi!`, in that order.
 
-```
+## Part 2
+**Absolute Path to the Private Key**
 
-Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
-$ find biomed/ -empty
- 
-```
-Now, the command tries to find empty files/directories in `biomed/` but finds none.
-So, its output is empty. This is useful for a similar reason as the last example,
-but in this case shows there are no such files.
+![Absolute Path to the Private Key](resources/lab-3/image-3.png)
 
-### Option 3: `-size`
-```
-Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
-$ find plos/ -size +35k
-plos/pmed.0010028.txt
-plos/pmed.0010036.txt
-plos/pmed.0020018.txt
-plos/pmed.0020059.txt
-plos/pmed.0020073.txt
-plos/pmed.0020103.txt
-plos/pmed.0020182.txt
-plos/pmed.0020246.txt
-plos/pmed.0020249.txt
-```
-The `-size` option filters the result of the `find` command to
-any files or directories small or larger in size than the given number. (`-` for smaller than and `+` for greater than) (k for kilobytes, M for megabytes)
-In this example, the command finds the few files in `plos/` greater than `35kB`.
-This would be useful to see which files are taking up a lot of space.
-You might then do something with these files such as delete them.
+**Absolute Path to the Public Key**
 
-```
-Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
-$ find plos/ -size -2k
-plos/
-plos/empty-directory
-plos/empty.txt
-plos/paradox.txt
-plos/pmed.0020191.txt
-plos/pmed.0020226.txt
-```
-Now, the command finds the files/directories in `plos/` less than `2kB`.
-This would be useful to see which files are not taking up lots of space.
+![Absolute Path to the Public Key](resources/lab-3/image-4.png)
 
-### Option 4: `-delete`
+**Terminal Interaction Login**
 
-```
-Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
-$ ls
-911report/  biomed/  government/  plos/
+![Terminal Interaction Login](resources/lab-3/image-5.png)
 
-Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
-$ find biomed/ -delete
- 
-Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
-$ ls
-911report/  government/  plos/
-```
-The `-delete` option, when added to the end of a `find` command deletes any files or folders that would have otherwise just been printed by the command.
-In this example, it deletes the entire directory `biomed/`, behaving similarly to `rm -r biomed/`.
+## Part 3
+**Something I've learned**
 
-```
-Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
-$ find plos/ -empty
-plos/empty-directory
-plos/empty.txt
-
-Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
-$ find plos/ -empty -delete
-
-Logan@DESKTOP-46LB60O MINGW64 ~/OneDrive/Desktop/lab-5/docsearch/technical (main)
-$ find plos/ -empty
- 
-```
-Now, using both the `-empty` and `-delete` options, the command deletes all *empty* files in `plos/`.
-This is a way in which you might clean up unnecessary (though not always) files/folders
-
-**Sources**
-
-For all options above, the sources are as follows:
-- ChatGPT with the prompt "What are some useful options/flags for the find command in bash?" This provided a starting point of options to further research with the man command and --help option. (No text in this report was written by AI.)
-- The man command and --help option.
+These past weeks, I learned how I could create a simple server using Java and mostly things I already know. I also learned more about ports (i.e. that there are default ones, reserved ones, and such), how to ssh into servers, and how to create ssh keys.
+I also just got more experience with the bash commands we've learned so far.

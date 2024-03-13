@@ -1,4 +1,4 @@
-# Lab 1
+# Lab Report 1 - Week 1
 
 ## The `cd` Command
 
